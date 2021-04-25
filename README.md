@@ -3,3 +3,6 @@ This repository contains data and code to enable reproducibility of the paper "E
 
 # Repository structure
 /shp/ ... folder with the layers of the sites, the random points and the study area in vector format
+
+# License
+CC-BY 4.0
