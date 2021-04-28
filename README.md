@@ -15,7 +15,7 @@ This repository contains data and code to enable reproducibility of the paper "E
 # Packages used
 [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html)
 
-sp
+[sp](https://cran.r-project.org/web/packages/sp/index.html)
 
 rgeos
 
