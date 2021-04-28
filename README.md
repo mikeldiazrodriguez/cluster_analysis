@@ -8,5 +8,9 @@ This repository contains data and code to enable reproducibility of the paper "E
 
 /shp/ ... folder with the layers of the sites, the random points and the study area in vector format
 
+/percolation/ ... folder for percolation analysis
+
+/xls/ ... contains XLS files with the data of the sites and the study area.
+
 # License
 CC-BY 4.0
