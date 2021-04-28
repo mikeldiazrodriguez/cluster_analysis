@@ -12,5 +12,26 @@ This repository contains data and code to enable reproducibility of the paper "E
 
 /xls/ ... contains XLS files with the data of the sites and the study area.
 
+# Packages used
+spatstat
+sp
+rgeos
+maptools
+GISTools
+ggplot2
+fpc
+plyr
+gridExtra
+dbscan
+tidyverse
+cluster
+factoextra
+gridExtra
+readxl
+NbClust
+percopackage
+rgdal
+igraph
+
 # License
 CC-BY 4.0
