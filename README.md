@@ -12,44 +12,42 @@ This repository contains data and code to enable reproducibility of the paper "E
 
 /xls/ ... contains XLS files with the data of the sites and the study area.
 
-# Packages used
+# R Packages used
 [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html)
 
 [sp](https://cran.r-project.org/web/packages/sp/index.html)
 
-rgeos
+[rgeos](https://cran.r-project.org/web/packages/rgeos/index.html)
 
-maptools
+[maptools](https://cran.r-project.org/web/packages/maptools/index.html)
 
-GISTools
+[GISTools](https://cran.r-project.org/web/packages/GISTools/index.html)
 
-ggplot2
+[ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
 
-fpc
+[fpc](https://cran.r-project.org/web/packages/fpc/index.html)
 
-plyr
+[plyr](https://cran.r-project.org/web/packages/plyr/index.html)
 
-gridExtra
+[gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html)
 
-dbscan
+[dbscan](https://cran.r-project.org/web/packages/dbscan/index.html)
 
-tidyverse
+[tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html)
 
-cluster
+[cluster](https://cran.r-project.org/web/packages/cluster/index.html)
 
-factoextra
+[factoextra](https://cran.r-project.org/web/packages/factoextra/index.html)
 
-gridExtra
+[readxl](https://cran.r-project.org/web/packages/readxl/index.html)
 
-readxl
+[NbClust](https://cran.r-project.org/web/packages/NbClust/index.html)
 
-NbClust
+[percopackage](https://github.com/SCSchmidt/percopackage/)
 
-percopackage
+[rgdal](https://cran.r-project.org/web/packages/rgdal/index.html)
 
-rgdal
-
-igraph
+[igraph](https://cran.r-project.org/web/packages/igraph/index.html)
 
 # License
 CC-BY 4.0
