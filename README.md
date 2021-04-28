@@ -14,23 +14,41 @@ This repository contains data and code to enable reproducibility of the paper "E
 
 # Packages used
 spatstat
+
 sp
+
 rgeos
+
 maptools
+
 GISTools
+
 ggplot2
+
 fpc
+
 plyr
+
 gridExtra
+
 dbscan
+
 tidyverse
+
 cluster
+
 factoextra
+
 gridExtra
+
 readxl
+
 NbClust
+
 percopackage
+
 rgdal
+
 igraph
 
 # License
