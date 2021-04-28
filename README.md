@@ -13,7 +13,7 @@ This repository contains data and code to enable reproducibility of the paper "E
 /xls/ ... contains XLS files with the data of the sites and the study area.
 
 # Packages used
-[spatstat] (#https://cran.r-project.org/web/packages/spatstat/index.html)
+[spatstat](https://cran.r-project.org/web/packages/spatstat/index.html)
 
 sp
 
