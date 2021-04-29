@@ -53,5 +53,44 @@ Diaz_and_Fabregas_21.html ... html file to reproduce the analysis.
 
 [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html) - Data representations and API design.
 
+## References information
+
+Auguie, B., Antonov, A., 2017. gridExtra: Miscellaneous Functions for “Grid” Graphics.
+
+Baddeley, A., Turner, R., Rubak, E., 2020. spatstat: Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests.
+
+Bivand, R., Keitt, T., Rowlingson, B., Pebesma, E., Sumner, M., Hijmans, R., Rouault, E., Warmerdam, F., Ooms, J., Rundel, C., 2020a. rgdal: Bindings for the “Geospatial” Data Abstraction Library.
+
+Bivand, R., Lewin-Koh, N., Pebesma, E., Archer, E., Baddeley, A., Bearman, N., Bibiko, H.-J., Brey, S., Callahan, J., Carrillo, G., Dray, S., Forrest, D., Friendly, M., Giraudoux, P., Golicher, D., Gómez Rubio, V., Hausmann, P., Hufthammer, K.O., Jagger, T., Johnson, K., Lewis, M., Luque, S., MacQueen, D., Niccolai, A., Pebesma, E., Prepiñán Lamigueiro, O., Plunkett, E., Rubak, E., Short, T., Snow, G., Stabler, B., Stokely, M., Turner, R., 2020b. maptools: Tools for Handling Spatial Objects.
+
+Bivand, R., Rundel, C., Pebesma, E., Stuetz, R., Hufthammer, K.O., Giraudoux, P., Davis, M., Santilli, S., 2020c. rgeos: Interface to Geometry Engine - Open Source ('GEOS’).
+
+Brunsdon, C., Chen, H., 2014. GISTools: Some further GIS capabilities for R.
+
+Charrad, M., Ghazzali, N., Boiteau, V., Niknafs, A., 2015. NbClust: Determining the Best Number of Clusters in a Data Set.
+
+Csardi, G., Nepusz, T., 2006. [The igraph software package for complex network research](http://www.interjournal.org/manuscript_abstract.php?361100992). InterJournal Complex Sy, 1695.
+
+Hahsler, M., Piekenbrock, M., Arya, S., Mount, D., 2019. dbscan: Density Based Clustering of Applications with Noise (DBSCAN) and Related Algorithms.
+
+Hennig, C., 2020. fpc: Flexible Procedures for Clustering.
+
+Kassambara, A., Mundt, F., 2020. factoextra: Extract and Visualize the Results of Multivariate Data Analyses.
+
+Maddison, M.S., Schmidt, S.C., 2020. [Percolation Analysis – Archaeological Applications at Widely Different Spatial Scales](https://journal.caa-international.org/article/10.5334/jcaa.54/). J. Comput. Appl. Archaeol. 3, 269–287. https://doi.org/10.17605/OSF.IO/7EXTC.
+
+Maechler, M., Rousseeuw, P., Struyf, A., Hubert, M., Hornik, K., 2019. cluster: Cluster Analysis Basics and Extension.
+
+Pebesma, E., Bivand, R., Rowlingson, B., Gomez-Rubio, V., Hijmans, R., Sumner, M., MacQueen, D., Lemon, J., Lindgren, F., O’Brien, J., O’Rourke, J., 2020. sp: Classes and Methods for Spatial Data.
+
+Wickham, H., 2020. plyr: Tools for Splitting, Applying and Combining Data.
+
+Wickham, H., Averick, M., Bryan, J., Chang, W., D’Agostino McGowan, L., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Lin Pedersen, T., Miller, E., Milton Bache, S., Müller, K., Ooms, J., Robinson, D., Piage Seidel, D., Spinu, V., Takahashi, K., Vaughan, D., Wilke, C., Woo, K., Yutani, H., 2019a. [Welcome to the tidyverse](https://joss.theoj.org/papers/10.21105/joss.01686). J. Open Source Softw. 4, 1686. https://doi.org/10.21105/joss.01686
+
+Wickham, H., Bryan, J., Kalicinski, M., Valery, K., Leitienne, C., Colbert, B., Hoerl, D., Miller, E., 2019b. readxl: Read Excel Files.
+
+Wickham, H., Chang, W., Henry, L., Pedersen, T.L., Takahashi, K., Wilke, C., Woo, K., Yutani, H., Dunnington, D., 2020. ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics.
+
+
 # License
 CC-BY 4.0
