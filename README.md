@@ -1,7 +1,7 @@
 # Evaluating cluster analysis methods. The case study of Palaeolithic distribution in Galician territory (NW Iberian Peninsula): source code and data
 This repository contains data and code to enable reproducibility of the paper "Evaluating cluster analysis methods. The case study of Palaeolithic distribution in Galician territory (NW Iberian Peninsula)"
 
-# Repository structure
+## Repository structure
 /csv/*.csv ... contains CSV files with the data of the sites and the random points.
 
 /output/ ... folder with the output files in PDF format.
@@ -16,7 +16,7 @@ Diaz_and_Fabregas_21.Rmd ... Rmarkdown file to reproduce the analysis.
 
 Diaz_and_Fabregas_21.html ... html file to reproduce the analysis.
 
-# R Packages used
+## R Packages used
 [cluster](https://cran.r-project.org/web/packages/cluster/index.html) - Cluster Analysis.
 
 [dbscan](https://cran.r-project.org/web/packages/dbscan/index.html) - Various density-based algorithms methods.
@@ -53,7 +53,7 @@ Diaz_and_Fabregas_21.html ... html file to reproduce the analysis.
 
 [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html) - Data representations and API design.
 
-## References information
+### References information
 
 Auguie, B., Antonov, A., 2017. gridExtra: Miscellaneous Functions for “Grid” Graphics.
 
@@ -92,5 +92,5 @@ Wickham, H., Bryan, J., Kalicinski, M., Valery, K., Leitienne, C., Colbert, B., 
 Wickham, H., Chang, W., Henry, L., Pedersen, T.L., Takahashi, K., Wilke, C., Woo, K., Yutani, H., Dunnington, D., 2020. ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics.
 
 
-# License
+## License
 CC-BY 4.0
