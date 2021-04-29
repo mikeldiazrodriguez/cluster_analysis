@@ -53,7 +53,7 @@ Diaz_and_Fabregas_21.html ... html file to reproduce the analysis.
 
 [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html) - Data representations and API design.
 
-### References information
+### References information about the packages
 
 Auguie, B., Antonov, A., 2017. gridExtra: Miscellaneous Functions for “Grid” Graphics.
 
