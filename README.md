@@ -2,15 +2,15 @@
 This repository contains data and code to enable reproducibility of the paper "Evaluating cluster analysis methods. The case study of Palaeolithic distribution in Galician territory (NW Iberian Peninsula)"
 
 # Repository structure
-/csv/*.csv ... contains CSV files with the data of the sites and the random points
+/csv/*.csv ... contains CSV files with the data of the sites and the random points.
 
-/output/ ... folder with the output files in PDF format
+/output/ ... folder with the output files in PDF format.
 
-/shp/ ... folder with the layers of the sites, the random points and the study area in vector format
+/shp/ ... folder with the layers of the sites, the random points and the study area in vector format.
 
-/percolation/ ... folder for percolation analysis
+/percolation/ ... folder for percolation analysis.
 
-/xls/ ... contains XLS files with the data of the sites and the study area.
+/xls/ ... contains XLS files with the data of the sites and the random points.
 
 Diaz_and_Fabregas_21.Rmd ... Rmarkdown file to reproduce the analysis.
 
@@ -35,13 +35,13 @@ Diaz_and_Fabregas_21.html ... html file to reproduce the analysis.
 
 [maptools](https://cran.r-project.org/web/packages/maptools/index.html) - Set of tools for manipulating geographic data.
 
-[NbClust](https://cran.r-project.org/web/packages/NbClust/index.html)
+[NbClust](https://cran.r-project.org/web/packages/NbClust/index.html) - Package for determining the best number of clusters in a data set.
 
 [percopackage](https://github.com/SCSchmidt/percopackage/) - Package for calculating percolation analysis.
 
 [plyr](https://cran.r-project.org/web/packages/plyr/index.html) - Set of tools that solves problems relates with applying or combining data.
 
-[readxl](https://cran.r-project.org/web/packages/readxl/index.html)
+[readxl](https://cran.r-project.org/web/packages/readxl/index.html) - Package for read excel files.
 
 [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html) - Provides bindings to the “GDAL” and “PROJ” library.
 
