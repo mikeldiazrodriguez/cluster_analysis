@@ -12,44 +12,42 @@ This repository contains data and code to enable reproducibility of the paper "E
 
 /xls/ ... contains XLS files with the data of the sites and the study area.
 
-# Packages used
-[spatstat](https://cran.r-project.org/web/packages/spatstat/index.html)
+# R Packages used
+[spatstat](https://cran.r-project.org/web/packages/spatstat/index.html) - Toolbox for analysing Spatial Point Patterns.
 
-[sp](https://cran.r-project.org/web/packages/sp/index.html)
+[sp](https://cran.r-project.org/web/packages/sp/index.html) - Classes and methods for spatial data.
 
-rgeos
+[rgeos](https://cran.r-project.org/web/packages/rgeos/index.html) - Package for topology operations on geometries.
 
-maptools
+[maptools](https://cran.r-project.org/web/packages/maptools/index.html) - Set of tools for manipulating geographic data.
 
-GISTools
+[GISTools](https://cran.r-project.org/web/packages/GISTools/index.html) - Mapping and spatial data manipulation tools.
 
-ggplot2
+[ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) - Package for creating graphics.
 
-fpc
+[fpc](https://cran.r-project.org/web/packages/fpc/index.html) - Various methods for clustering and cluster validation.
 
-plyr
+[plyr](https://cran.r-project.org/web/packages/plyr/index.html) - Set of tools that solves problems relates with applying or combining data.
 
-gridExtra
+[gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html) - User-level functions to work with "grid" graphics.
 
-dbscan
+[dbscan](https://cran.r-project.org/web/packages/dbscan/index.html) - Various density-based algorithms methods.
 
-tidyverse
+[tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html) - Data representations and API design.
 
-cluster
+[cluster](https://cran.r-project.org/web/packages/cluster/index.html) - Cluster Analysis.
 
-factoextra
+[factoextra](https://cran.r-project.org/web/packages/factoextra/index.html) - Extract and visualize the results of Multivariate Data Analyses
 
-gridExtra
+[readxl](https://cran.r-project.org/web/packages/readxl/index.html)
 
-readxl
+[NbClust](https://cran.r-project.org/web/packages/NbClust/index.html)
 
-NbClust
+[percopackage](https://github.com/SCSchmidt/percopackage/) - Package for calculating percolation analysis.
 
-percopackage
+[rgdal](https://cran.r-project.org/web/packages/rgdal/index.html) - Provides bindings to the “GDAL” and “PROJ” library.
 
-rgdal
-
-igraph
+[igraph](https://cran.r-project.org/web/packages/igraph/index.html) - Package for generating graphs and network analysis.
 
 # License
 CC-BY 4.0
