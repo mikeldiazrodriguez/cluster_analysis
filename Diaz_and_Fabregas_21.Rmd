@@ -1,0 +1,441 @@
+---
+title: "Evaluating cluster analysis methods. The case study of Palaeolithic distribution in Galician territory (NW Iberian Peninsula): source code and data"
+author: "Mikel Diaz-Rodriguez and Ramon Fabregas-Valcarce"
+date: "April 26th, 2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE,
+                      echo = TRUE)
+```
+
+# Introduction
+
+This document contains code to enable reproducibility of the paper "Evaluating cluster analysis methods. The case study of Palaeolithic distribution in Galician territory (NW Iberian Peninsula)".
+
+The steps indicated in the following lines allow to reproduce the analyses carried out.
+
+# Packages used
+### Import the packages
+
+```{r echo=TRUE, results='hide'}
+# ipak function: install and load multiple R packages.
+
+ipak <- function(pkg){
+  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(new.pkg)) 
+    install.packages(new.pkg, dependencies = TRUE)
+  sapply(pkg, require, character.only = TRUE)
+}
+# install all the packages
+packages <- c("spatstat", "sp", "rgeos", "maptools", "GISTools", "ggplot2", "fpc", "plyr", "gridExtra", "dbscan", "tidyverse", "cluster", "factoextra", "gridExtra", "readxl", "NbClust", "percopackage", "rgdal", "igraph")
+ipak(packages)
+```
+
+
+# Complete Spatial Randomness
+### Import the data used in CSR analysis
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+# set the working directory
+setwd("~/shp")
+
+# set the projection 
+BNG = "+init=epsg:25829"
+
+# add the study area 
+studyarea <- readShapePoly("Galicia.shp", proj4string = CRS(BNG))
+
+# and check it is worked
+plot(studyarea)
+
+# add the sites
+sites <- readShapePoints("sites.shp", proj4string = CRS(BNG))
+
+# add the random points
+random_sites <- readShapePoints("random_sites.shp", proj4string = CRS(BNG))
+
+# plot the studyarea and the sites and check everything looks ok
+plot(sites, col="blue", pch=20, add=T)
+
+# remove any sites with the same grid reference
+sites <- remove.duplicates(sites)
+
+# select the points inside the studyarea 
+sitesSub <- sites[studyarea,]
+
+# check to see that they have been removed
+plot(studyarea)
+plot(sitesSub, col="red", pch=20, add=T)
+
+# set a window as the studyarea
+window <- as.owin(studyarea)
+plot(window)
+
+# create a ppp object
+sitesSub.ppp <- ppp(x=sitesSub$Easting,y=sitesSub$Northing,window=window)
+
+# plot the sites and the studyarea
+plot(sitesSub.ppp,pch=16,cex=0.5, main="Palaeolithic archaeological sites")
+```
+
+### Shapiro-Wilk Test
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Shapiro-Wilk Test
+shapiro.test(sites$Easting)
+```
+
+### K-S Test
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+# K-S sites vs random sites
+ks.test(sites$Easting,random_sites$Easting)
+```
+
+### Kernel density estimation methods for cluster analysis selection
+
+```{r echo=TRUE, results='hide'}
+# bw.diggle estimation method
+a <- bw.diggle(sitesSub.ppp)
+a
+plot(a, main="a. Likelihood crooss-validation bw.diggle criterion for smoothing bandwith")
+pdf(file = "~output/Figure2a.pdf",width = 5,height = 12)
+
+# bw.ppl estimation method
+b <- bw.ppl(sitesSub.ppp)
+b
+plot(b, main="b. Likelihood cross-validation bw.ppl criterion for smoothing bandwith")
+pdf(file = "~output/Figure2b.pdf",width = 5,height = 12)
+
+# bw.scott estimation method
+c <- bw.scott(sitesSub.ppp)
+c
+plot(c, main="c. Bandwith selection in multidimensional smoothing with bw.scott method")
+pdf(file = "~output/Figure2c.pdf",width = 5,height = 12)
+
+# bw.frac estimation method
+d <- bw.frac(sitesSub.ppp)
+d
+plot(d, main="d. Bandwith selection rule based on the window geometry with bw.frac method")
+pdf(file = "~output/Figure2d.pdf",width = 5,height = 12)
+
+# bw.CvL estimation method
+e <- bw.CvL(sitesSub.ppp) 
+e
+plot(e, main="e. Smoothing bandwith selection based on Cambell's formula with bw.CvL method")
+pdf(file = "~output/Figure2e.pdf",width = 5,height = 12)
+```
+
+### KDE
+
+Kernel density estimation analysis for the best sigmas established in the previous step.
+
+```{r echo=TRUE, results='hide'}
+plot(density(sitesSub.ppp, sigma = 413.4299), main="a. Kernel Density (sigma = 0.41 km)")
+points(sites$Easting, sites$Northing, pch = 16, cex = 0.2, col = "black")
+pdf(file = "~output/Figure3a.pdf",width = 4,height = 4)
+
+plot(density(sitesSub.ppp, sigma = 5314.439), main="b. Kernel Density (sigma = 5.31 km)")
+points(sites$Easting, sites$Northing, pch = 16, cex = 0.2, col = "black")
+pdf(file = "~output/Figure3b.pdf",width = 4,height = 4)
+
+plot(density(sitesSub.ppp, sigma = 14180.02), main="c. Kernel Density (sigma = 14.18 km)")
+points(sites$Easting, sites$Northing, pch = 16, cex = 0.2, col = "black")
+pdf(file = "~output/Figure3c.pdf",width = 4,height = 4)
+
+plot(density(sitesSub.ppp, sigma = 17790.83), main="d. Kernel Density (sigma = 17.79 km)")
+points(sites$Easting, sites$Northing, pch = 16, cex = 0.2, col = "black")
+pdf(file = "~output/Figure3d.pdf",width = 4,height = 4)
+
+plot(density(sitesSub.ppp, sigma = 25282.11), main="e. Kernel Density (sigma = 25.28 km)")
+points(sites$Easting, sites$Northing, pch = 16, cex = 0.2, col = "black")
+pdf(file = "~output/Figure3e.pdf",width = 4,height = 4)
+
+plot(density(sitesSub.ppp, sigma = 56825.16), main="f. Kernel Density (sigma = 56.83 km)")
+points(sites$Easting, sites$Northing, pch = 16, cex = 0.2, col = "black")
+pdf(file = "~output/Figure3f.pdf",width = 4,height = 4)
+```
+
+### Quadrat Test
+
+```{r echo=TRUE, results='hide'}
+# plot the points
+plot(sitesSub.ppp,pch=16,cex=0.5, main="g. Quadrat Test results")
+# count the points in that fall in a 6 x 6 grid overlaid across the window
+plot(quadratcount(sitesSub.ppp, nx = 6, ny = 6),add=T,col="red")
+pdf(file = "~output/Figure3g.pdf",width = 8,height = 8)
+
+# if the p-value of Chi-Squared test is > 0.05, then we can reject a null hyphothesis that says "there is no complete spatial randomness in our data". If p-value is > 0.05 then this indicates that we have CSR and there is no pattern in our points. If it is < 0.05, this indicates that we do have clustering in our points.
+teststats <- quadrat.test(sitesSub.ppp, nx = 6, ny = 6)
+
+teststats
+
+
+# the top-left value is the observed count of points; the top-right is the Poisson expected number of points; the bottom value is the Pearson residual value, or (Observed - Expected) / Sqrt(Expected).
+plot(sitesSub.ppp,pch=16,cex=0.5, main="h. Quadrat Test Stats results")
+plot(teststats, add=T, col = "red")
+pdf(file = "~output/Figure3h.pdf",width = 8,height = 8)
+```
+
+### K, L and G Functions
+
+```{r echo=TRUE, results='hide'}
+# set the simulations
+sims <- 99
+# to get 95% envelope
+nrank <- round((sims + 1) / 100 * 2.5, 0) 
+
+# Kfunction sites
+Kfunction <- envelope(sitesSub.ppp,Kest, nsim=sims,rank=nrank, correction="best") 
+# Homogeneous
+plot(Kfunction,main="a. K Function (homogeneous)",legend=FALSE)
+pdf(file = "~output/Figure4a.pdf",width = 5,height = 12)
+# Inhomogeneous
+KinhomFunction <- envelope(sitesSub.ppp,Kinhom, nsim=sims,rank=nrank, correction="best") 
+plot(KinhomFunction,main="b. K Function (inhomogeneous)",legend=FALSE)
+pdf(file = "~output/Figure4b.pdf",width = 5,height = 12)
+
+# LFunction sites
+LFunction <- envelope(sitesSub.ppp,Lest, nsim=sims,rank=nrank, correction="best")
+# Homogeneous
+plot(LFunction,main="c. L Function (homogeneous)",legend=FALSE)
+pdf(file = "~output/Figure4c.pdf",width = 5,height = 12)
+# Inhomogeneous
+LinhomFunction <- envelope(sitesSub.ppp,Linhom, nsim=sims,rank=nrank, correction="best")
+plot(LinhomFunction,main="d. L Function (inhomogeneous)",legend=FALSE) 
+pdf(file = "~output/Figure4d.pdf",width = 5,height = 12)
+
+# GFunction sites
+GFunction <- envelope(sitesSub.ppp,Gest, nsim=sims,rank=nrank, correction="best") 
+# Homogeneous
+plot(GFunction,main="e. G Function (homogeneous)",legend=FALSE) 
+pdf(file = "~output/Figure4e.pdf",width = 5,height = 12)
+# Inhomogeneous
+GinhomFunction <- envelope(sitesSub.ppp,Ginhom, nsim=sims,rank=nrank, correction="best") 
+plot(GinhomFunction,main="f. G Function (inhomogeneous)",legend=FALSE) 
+pdf(file = "~output/Figure4f.pdf",width = 5,height = 12)
+```
+
+### Other statistical tests
+
+Different statistical tests to analyse the sample of sites.
+
+```{r echo=TRUE, results='hide'}
+# X2 test sites
+chisq.test(sites$Easting,sites$Northing)
+
+# DCLF Test 
+dclf.test(sitesSub.ppp)
+
+# Clark and Evans Test
+clarkevans.test(sitesSub.ppp)
+
+# Hopkins-Skellam Test 
+hopskel.test(sitesSub.ppp, alternative=c("clustered"),method=c("MonteCarlo"),nsim=999)
+```
+
+# Kmeans analysis
+### Import data
+
+```{r echo=TRUE, results='hide'}
+# set the working directory
+setwd("~/xls")
+data <- read_excel("data.xls")
+View(data)
+
+# remove any missing value that might be present in the data
+df <- na.omit(data)
+
+# start by scaling/standardizing the data 
+df <- scale(df)
+head(df) 
+
+# for computing a distance matrix between the rows of a data matrix for Euclidean distance
+distance <- get_dist(df) 
+```
+
+### Optimal number of clusters
+
+```{r echo=TRUE, results='hide'}
+# all indices included to be calculated
+resnumclust <- NbClust(df, distance = "euclidean", min.nc=2, max.nc=24, method = "kmeans", index = "alllong")
+fviz_nbclust(resnumclust)
+```
+
+### Cluster distribution
+
+```{r echo=TRUE, results='hide'}
+# clusters
+k2 <- kmeans(df, centers = 2, nstart = 25) #test with 2 clusters
+k5 <- kmeans(df, centers = 5, nstart = 25) #test with 5 clusters
+k7 <- kmeans(df, centers = 7, nstart = 25) #test with 7 clusters
+k13 <- kmeans(df, centers = 13, nstart = 25) #test with 13 clusters
+
+# plot the clusters
+p1 <- df %>%
+  as_tibble() %>%
+  mutate(cluster = k2$cluster,
+         state = row.names(data)) %>%
+  ggplot(aes(data$Easting, data$Northing, color = factor(cluster), label = state)) +
+  geom_point()  + theme_bw() + labs(title = "Kmeans (N=2)",y= "UTM Y", x = "UTM X",colour = "Cluster") 
+
+p2 <- df %>%
+  as_tibble() %>%
+  mutate(cluster = k5$cluster,
+         state = row.names(data)) %>%
+  ggplot(aes(data$Easting, data$Northing, color = factor(cluster), label = state)) +
+  geom_point() + theme_bw() +labs(title = "Kmeans (N=5)",y= "UTM Y", x = "UTM X",colour = "Cluster") 
+
+p3 <- df %>%
+  as_tibble() %>%
+  mutate(cluster = k7$cluster,
+         state = row.names(data)) %>%
+  ggplot(aes(data$Easting, data$Northing, color = factor(cluster), label = state)) +
+  geom_point() + theme_bw() +labs(title = "Kmeans (N=7)",y= "UTM Y", x = "UTM X",colour = "Cluster") 
+
+p4 <- df %>%
+  as_tibble() %>%
+  mutate(cluster = k13$cluster,
+         state = row.names(data)) %>%
+  ggplot(aes(data$Easting, data$Northing, color = factor(cluster), label = state)) +
+  geom_point() + theme_bw() +labs(title = "Kmeans (N=13)",y= "UTM Y", x = "UTM X",colour = "Cluster") 
+
+# plot comparing the 4 clusters (N=2/N=13)
+grid.arrange(p1, p2, p3, p4, nrow = 2)
+pdf(file = "~output/Figure4f.pdf",width = 6,height = 10)
+```
+
+# DBSCAN analysis
+### Import data
+
+```{r echo=TRUE, results='hide'}
+# set the working directory
+setwd("~/shp")
+
+# EPSG string to help set the projection 
+BNG = "+init=epsg:25829"
+# read the data in
+studyarea <- readShapePoly("Galicia.shp", proj4string = CRS(BNG))
+# check it is worked
+plot(studyarea)
+
+# add the sites
+sites <- readShapePoints("sites.shp", proj4string = CRS(BNG))
+# plot the studyarea and the sites and check everything looks ok
+plot(sites, col="blue", pch=20, add=T)
+
+# remove any sites with the same grid reference
+sites <- remove.duplicates(sites)
+# select the points inside the studyarea 
+sitesSub <- sites[studyarea,]
+# check to see that they have been removed
+plot(studyarea)
+plot(sitesSub, col="red", pch=20, add=T) 
+
+# set a window as the studyarea
+window <- as.owin(studyarea)
+plot(window)
+
+# create a ppp object
+sitesSub.ppp <- ppp(x=sitesSub$Easting,y=sitesSub$Northing,window=window)
+
+# this option is to check the coordinate reference system of the spatial polygon:
+crs(studyarea)
+
+# extract the points from the spatial points data frame
+sitesPoints <- data.frame(x=sitesSub$Easting,y=sitesSub$Northing)
+```
+
+### Evaluation of eps
+
+```{r echo=TRUE, results='hide'}
+# indicate min_pts
+min_pts <- 4
+
+
+# evaluate the eps and chose the value
+A <- dbscan::kNNdist(sitesPoints, k = min_pts)
+Eps <- A[order(A)]
+plot(Eps)
+
+abline(h=6000, col = "red", lty=2) + title("a.Evaluation of eps")
+pdf(file = "~output/Figure7a.pdf",width = 5,height = 12)
+```
+
+### Create DBSCAN
+
+```{r echo=TRUE, results='hide'}
+# run the dbscan analysis for different eps
+db1 <- fpc::dbscan(sitesPoints, eps = 1000, MinPts = 4)
+
+db2 <- fpc::dbscan(sitesPoints, eps = 6000, MinPts = 4) 
+
+db3 <- fpc::dbscan(sitesPoints, eps = 10000, MinPts = 4) 
+
+db4 <- fpc::dbscan(sitesPoints, eps = 20000, MinPts = 4)
+
+# create a ggplot2 object from the data
+cluster1 <- as.factor(as.character(db1$cluster))
+p1 <- ggplot(data=sitesPoints, aes(x=sitesSub$Easting, y=sitesSub$Northing, colour=cluster1, factor(cluster1))) + 
+  geom_point()+ theme_bw() + labs(title = "DBSCAN Cluster (eps = 1000)", y= "UTM Y", x = "UTM X") + 
+  scale_color_manual(values = c("oldlace", "#2E9FDF", "#FC4E07","peru", "seagreen", "seashell3", "violetred", "yellow1", "tan2", "slateblue4", "plum2", "mediumspringgreen", "lightsteelblue1", "lightsalmon1", "khaki4", "lightcoral", "mediumspringgreen", "lightyellow1", "maroon3", "olivedrab4", "midnightblue", "navajowhite4")) + labs(colour = "Cluster Number")
+plot(p1)
+
+cluster2 <- as.factor(as.character(db2$cluster))
+p2 <- ggplot(data=sitesPoints, aes(x=sitesSub$Easting, y=sitesSub$Northing, colour=cluster2)) + 
+  geom_point()+ theme_bw() + labs(title = "DBSCAN Cluster (eps = 6000)",y= "UTM Y", x = "UTM X") + 
+  scale_color_manual(values = c("oldlace", "#2E9FDF", "#FC4E07","peru", "seagreen", "seashell3", "violetred", "yellow1", "tan2", "slateblue4", "plum2", "mediumspringgreen", "lightsteelblue1", "lightsalmon1")) + labs(colour = "Cluster Number")
+plot(p2)
+
+cluster3 <- as.factor(as.character(db3$cluster))
+p3 <- ggplot(data=sitesPoints, aes(x=sitesSub$Easting, y=sitesSub$Northing, colour=cluster3)) + 
+  geom_point()+ theme_bw() + labs(title = "DBSCAN Cluster (eps = 10000)",y= "UTM Y", x = "UTM X") + 
+  scale_color_manual(values = c("oldlace", "#2E9FDF", "#FC4E07","peru", "seagreen", "seashell3", "violetred", "yellow1", "tan2", "slateblue4")) + labs(colour = "Cluster Number")
+plot(p3)
+
+cluster4 <- as.factor(as.character(db4$cluster))
+p4 <- ggplot(data=sitesPoints, aes(x=sitesSub$Easting, y=sitesSub$Northing, colour=cluster4)) + 
+  geom_point() + theme_bw() + labs(title = "DBSCAN Cluster (eps = 20000)",y= "UTM Y", x = "UTM X") + 
+  scale_color_manual(values = c("oldlace", "#2E9FDF", "#FC4E07","peru")) + labs(colour = "Cluster Number")
+plot(p4)
+
+
+grid.arrange(p1, p2, p3, p4, nrow = 2)
+pdf(file = "~output/Figure7b-e.pdf",width = 8,height = 12)
+```
+
+# Percolation analysis
+### Import data
+
+```{r echo=TRUE, results='hide'}
+
+# set the working directory. The process create new folders in that directory for the results
+setwd("~/percolation")
+
+# import sites
+data <- read_excel("data.xls")
+
+# import studyarea
+Gal_shape <- readOGR(dsn="Galicia.shp", layer="Galicia")
+```
+
+### Analysis
+
+```{r echo=TRUE, results='hide'}
+# percolation
+percolate (data, ,40, 2, 1, 50, 1000)
+
+# create maps
+map_name <- "Percolation distance"
+dpi <- 300
+
+# create the cluster maps
+mapClusters(Gal_shape,map_name,"cluster",dpi)
+
+# create graphs
+plotClustFreq ("analysis_by_radius.csv")
+```
