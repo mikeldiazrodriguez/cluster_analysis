@@ -77,7 +77,7 @@ Hennig, C., 2020. fpc: Flexible Procedures for Clustering.
 
 Kassambara, A., Mundt, F., 2020. factoextra: Extract and Visualize the Results of Multivariate Data Analyses.
 
-Maddison, M.S., Schmidt, S.C., 2020. [Percolation Analysis – Archaeological Applications at Widely Different Spatial Scales](https://journal.caa-international.org/article/10.5334/jcaa.54/). J. Comput. Appl. Archaeol. 3, 269–287. https://doi.org/10.17605/OSF.IO/7EXTC.
+Maddison, M.S., Schmidt, S.C., 2020. [Percolation Analysis – Archaeological Applications at Widely Different Spatial Scales](https://journal.caa-international.org/article/10.5334/jcaa.54/). J. Comput. Appl. Archaeol. 3, 269–287. doi:10.17605/OSF.IO/7EXTC.
 
 Maechler, M., Rousseeuw, P., Struyf, A., Hubert, M., Hornik, K., 2019. cluster: Cluster Analysis Basics and Extension.
 
@@ -85,7 +85,7 @@ Pebesma, E., Bivand, R., Rowlingson, B., Gomez-Rubio, V., Hijmans, R., Sumner, M
 
 Wickham, H., 2020. plyr: Tools for Splitting, Applying and Combining Data.
 
-Wickham, H., Averick, M., Bryan, J., Chang, W., D’Agostino McGowan, L., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Lin Pedersen, T., Miller, E., Milton Bache, S., Müller, K., Ooms, J., Robinson, D., Piage Seidel, D., Spinu, V., Takahashi, K., Vaughan, D., Wilke, C., Woo, K., Yutani, H., 2019a. [Welcome to the tidyverse](https://joss.theoj.org/papers/10.21105/joss.01686). J. Open Source Softw. 4, 1686. https://doi.org/10.21105/joss.01686
+Wickham, H., Averick, M., Bryan, J., Chang, W., D’Agostino McGowan, L., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Lin Pedersen, T., Miller, E., Milton Bache, S., Müller, K., Ooms, J., Robinson, D., Piage Seidel, D., Spinu, V., Takahashi, K., Vaughan, D., Wilke, C., Woo, K., Yutani, H., 2019a. [Welcome to the tidyverse](https://joss.theoj.org/papers/10.21105/joss.01686). J. Open Source Softw. 4, 1686. doi:10.21105/joss.01686
 
 Wickham, H., Bryan, J., Kalicinski, M., Valery, K., Leitienne, C., Colbert, B., Hoerl, D., Miller, E., 2019b. readxl: Read Excel Files.
 
