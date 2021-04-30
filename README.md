@@ -91,7 +91,7 @@ Wickham, H., Bryan, J., Kalicinski, M., Valery, K., Leitienne, C., Colbert, B., 
 
 Wickham, H., Chang, W., Henry, L., Pedersen, T.L., Takahashi, K., Wilke, C., Woo, K., Yutani, H., Dunnington, D., 2020. ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics.
 
-## Reference the source code and data
+## Source code and data reference
 Mikel Díaz-Rodríguez<a href="https://orcid.org/0000-0002-2703-1507">
 <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="14" height="14" />
 </a> & Ramón Fábregas-Valcarce<a href="https://orcid.org/0000-0002-7940-6884">
