@@ -91,6 +91,10 @@ Wickham, H., Bryan, J., Kalicinski, M., Valery, K., Leitienne, C., Colbert, B., 
 
 Wickham, H., Chang, W., Henry, L., Pedersen, T.L., Takahashi, K., Wilke, C., Woo, K., Yutani, H., Dunnington, D., 2020. ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics.
 
+## Cite the code
+[![DOI](https://zenodo.org/badge/360846133.svg)](https://zenodo.org/badge/latestdoi/360846133)
+
+Link in Zenodo: https://zenodo.org/badge/latestdoi/360846133
 
 ## License
 CC-BY 4.0
