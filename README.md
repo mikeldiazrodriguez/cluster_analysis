@@ -98,7 +98,7 @@ Mikel Díaz-Rodríguez<a href="https://orcid.org/0000-0002-2703-1507">
 <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="14" height="14" />
 </a> & Ramón Fábregas-Valcarce<a href="https://orcid.org/0000-0002-7940-6884">
 <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="14" height="14" />
-</a>. (2021, April 30). Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula: source code and data (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.4729680
+</a>. (2021, December 7). Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula: source code and data (v.1.1). Zenodo. https://doi.org/10.5281/zenodo.5763833
 
 [![DOI](https://zenodo.org/badge/360846133.svg)](https://zenodo.org/badge/latestdoi/360846133)
 
