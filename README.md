@@ -4,6 +4,8 @@ This repository contains data and code to enable reproducibility of the paper "E
 ## Repository structure
 /csv/*.csv ... contains CSV files with the data of the sites and the random points.
 
+/figures/ ... folder with the figures used in the paper in PDF format.
+
 /output/ ... folder with the output files in PDF format.
 
 /shp/ ... folder with the layers of the sites, the random points and the study area in vector format.
@@ -96,7 +98,7 @@ Mikel Díaz-Rodríguez<a href="https://orcid.org/0000-0002-2703-1507">
 <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="14" height="14" />
 </a> & Ramón Fábregas-Valcarce<a href="https://orcid.org/0000-0002-7940-6884">
 <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="14" height="14" />
-</a>. (2021, April 30). Evaluating cluster analysis methods. The case study of Palaeolithic distribution in Galician territory (NW Iberian Peninsula): source code and data (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.4729680
+</a>. (2021, April 30). Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula: source code and data (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.4729680
 
 [![DOI](https://zenodo.org/badge/360846133.svg)](https://zenodo.org/badge/latestdoi/360846133)
 
