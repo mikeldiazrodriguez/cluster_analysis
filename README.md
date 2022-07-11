@@ -1,5 +1,5 @@
 # Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula: source code and data
-This repository contains data and code to enable reproducibility of the paper "Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula"
+This repository contains data and code to enable reproducibility of the paper "Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula". Journal of Archaeological Science: Reports, Vol. 41. https://doi.org/10.1016/j.jasrep.2021.103323
 
 ## Repository structure
 /csv/*.csv ... contains CSV files with the data of the sites and the random points.
