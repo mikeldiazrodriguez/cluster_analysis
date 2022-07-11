@@ -1,5 +1,9 @@
 # Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula: source code and data
-This repository contains data and code to enable reproducibility of the paper "Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula". Journal of Archaeological Science: Reports, Vol. 41. https://doi.org/10.1016/j.jasrep.2021.103323
+This repository contains data and code to enable reproducibility of the paper: Díaz-Rodríguez, M.<a href="https://orcid.org/0000-0002-2703-1507">
+<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="14" height="14" />
+</a> & Fábregas-Valcarce, R. <a href="https://orcid.org/0000-0002-7940-6884">
+<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="14" height="14" />
+</a>. 2022. Evaluating the effectiveness of three spatial cluster analysis methods on Palaeolithic site location distributions in Galicia, NW Iberian Peninsula". Journal of Archaeological Science: Reports, Vol. 41. https://doi.org/10.1016/j.jasrep.2021.103323
 
 ## Repository structure
 /csv/*.csv ... contains CSV files with the data of the sites and the random points.
